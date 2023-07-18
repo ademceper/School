@@ -59,7 +59,7 @@ else if (secim == 3)
 else if (secim == 4)
 {
     siniftaGecenler = ogrenciler.Where(p => p.Devamsizlik <= 20 && p.SinavNotu >= 50).ToList();
-    siniftaKalanlar = ogrenciler.Where(p => p.Devamsizlik >= 20 || p.SinavNotu <= 50).ToList();
+    siniftaKalanlar = ogrenciler.Where(p => p.Devamsizlik >= 20 || p.SinavNotu < 50).ToList();
     Console.WriteLine("Sınıfı Geçenler Listesi");
     foreach (var item in siniftaGecenler)
     {
