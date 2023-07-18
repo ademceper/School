@@ -22,6 +22,7 @@ Console.WriteLine("4. Sınıfı Geçip ve Kalanların listesi");
 Console.WriteLine("5. Öğrenci Devamsızlık Bilgisi Güncellemesi");
 Console.WriteLine("6. Öğrenci Not Bilgisi Güncellemesi");
 Console.WriteLine("7. Çıkış");
+Console.WriteLine("---------------------------------------------------------------------------------------------");
 int secim = int.Parse(Console.ReadLine());
 if (secim == 1)
 {
@@ -30,6 +31,7 @@ if (secim == 1)
     {
         Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
     }
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 else if (secim == 2)
@@ -40,6 +42,7 @@ else if (secim == 2)
     Console.WriteLine("Öğrenci Sınıfta ise 'true', öğrenci sınıfta değil ise 'false' yazınız.");
     bool kontrol = bool.Parse(Console.ReadLine());
     ogrenci.SiniftaMi = kontrol;
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 else if (secim == 3)
@@ -50,6 +53,7 @@ else if (secim == 3)
     {
         Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
     }
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 else if (secim == 4)
@@ -61,12 +65,13 @@ else if (secim == 4)
     {
         Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
     }
-    Console.WriteLine("");
+    Console.WriteLine("************************************************************************************************");
     Console.WriteLine("Sınıfta Kalanlar Listesi");
     foreach (var item in siniftaKalanlar)
     {
         Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
     }
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 else if (secim == 5)
@@ -78,6 +83,7 @@ else if (secim == 5)
     int kontrol = int.Parse(Console.ReadLine());
     ogrenci.Devamsizlik = kontrol;
     Console.WriteLine("Devamsızlık bilgisi güncellenmiştir.");
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 else if (secim == 6)
@@ -89,6 +95,7 @@ else if (secim == 6)
     int kontrol = int.Parse(Console.ReadLine());
     ogrenci.SinavNotu = kontrol;
     Console.WriteLine("Not bilgisi güncellenmiştir.");
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 else if (secim == 7)
@@ -98,6 +105,7 @@ else if (secim == 7)
 else
 {
     Console.WriteLine("Hatalı seçim yapıldı lütfen tekrar deneyiniz");
+    Console.WriteLine("************************************************************************************************");
     goto rtn;
 }
 public class Ogrenci
