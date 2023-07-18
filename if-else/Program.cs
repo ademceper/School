@@ -1,6 +1,8 @@
 ﻿
 List<Ogrenci> ogrenciler = new();
 List<Ogrenci> siniftaOlmayanlar = new();
+List<Ogrenci> siniftaGecenler = new();
+List<Ogrenci> siniftaKalanlar = new();
 ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Adem", SiniftaMi = false, OgrenciNo = 1 , Devamsizlik = 5,SinavNotu = 50,});
 ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Enes", SiniftaMi = true, OgrenciNo = 2, Devamsizlik = 21, SinavNotu = 45, });
 ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Burak", SiniftaMi = true, OgrenciNo = 3, Devamsizlik = 8, SinavNotu = 56,});
@@ -16,14 +18,15 @@ Console.WriteLine("Lütfen yapmak istediğiniz işlemin numarasını yazarak se�
 Console.WriteLine("1. Öğrenci listesi");
 Console.WriteLine("2. Yoklama al");
 Console.WriteLine("3. Gelmeyen öğrenci listesi");
-Console.WriteLine("4. Not hesapla");
+Console.WriteLine("4. Sınıfı Geçip ve Kalanların listesi");
 Console.WriteLine("5. Çıkış");
 int secim = int.Parse(Console.ReadLine());
-if (secim == 1) 
-{   Console.WriteLine("Öğrenci bilgileri aşağıda verilmiştir.");
+if (secim == 1)
+{
+    Console.WriteLine("Öğrenci bilgileri aşağıda verilmiştir.");
     foreach (var item in ogrenciler)
     {
-        Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " +item.SinavNotu);
+        Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
     }
     goto rtn;
 }
@@ -41,11 +44,32 @@ else if (secim == 3)
 {
     siniftaOlmayanlar = ogrenciler.Where(p => p.SiniftaMi == false).ToList();
     Console.WriteLine("Gelmeyen öğrenci listesi aşağıda verilmiştir");
-    foreach(var item in siniftaOlmayanlar) 
+    foreach (var item in siniftaOlmayanlar)
     {
         Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
     }
     goto rtn;
+}
+else if (secim == 4)
+{
+    siniftaGecenler = ogrenciler.Where(p => p.Devamsizlik <= 20 && p.SinavNotu >= 50).ToList();
+    siniftaKalanlar = ogrenciler.Where(p => p.Devamsizlik >= 20 || p.SinavNotu <= 50).ToList();
+    Console.WriteLine("Sınıfı Geçenler Listesi");
+    foreach (var item in siniftaGecenler)
+    {
+        Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
+    }
+    Console.WriteLine("");
+    Console.WriteLine("Sınıfta Kalanlar Listesi");
+    foreach (var item in siniftaKalanlar)
+    {
+        Console.WriteLine("Öğrenci Adı : " + item.OgrenciAdi + ", Öğrenci Numarası : " + item.OgrenciNo + ", Devamsızlık Bilgisi : " + item.Devamsizlik + ", Sınav Notu : " + item.SinavNotu);
+    }
+    goto rtn;
+}
+else if (secim == 5)
+{
+    Console.WriteLine("Çıkış Yapıldı");
 }
 public class Ogrenci
 {
