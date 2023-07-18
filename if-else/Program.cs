@@ -19,7 +19,9 @@ Console.WriteLine("1. Öğrenci listesi");
 Console.WriteLine("2. Yoklama al");
 Console.WriteLine("3. Gelmeyen öğrenci listesi");
 Console.WriteLine("4. Sınıfı Geçip ve Kalanların listesi");
-Console.WriteLine("5. Çıkış");
+Console.WriteLine("5. Öğrenci Devamsızlık Bilgisi Güncellemesi");
+Console.WriteLine("6. Öğrenci Not Bilgisi Güncellemesi");
+Console.WriteLine("7. Çıkış");
 int secim = int.Parse(Console.ReadLine());
 if (secim == 1)
 {
@@ -69,7 +71,34 @@ else if (secim == 4)
 }
 else if (secim == 5)
 {
+    Console.WriteLine("Lütfen Öğrenci numarasını giriniz");
+    int no = int.Parse(Console.ReadLine());
+    Ogrenci ogrenci = ogrenciler.Where(p => p.OgrenciNo == no).FirstOrDefault();
+    Console.WriteLine("Devamsızlık Sayısını giriniz");
+    int kontrol = int.Parse(Console.ReadLine());
+    ogrenci.Devamsizlik = kontrol;
+    Console.WriteLine("Devamsızlık bilgisi güncellenmiştir.");
+    goto rtn;
+}
+else if (secim == 6)
+{
+    Console.WriteLine("Lütfen Öğrenci numarasını giriniz");
+    int no = int.Parse(Console.ReadLine());
+    Ogrenci ogrenci = ogrenciler.Where(p => p.OgrenciNo == no).FirstOrDefault();
+    Console.WriteLine("Not bilgisini giriniz");
+    int kontrol = int.Parse(Console.ReadLine());
+    ogrenci.SinavNotu = kontrol;
+    Console.WriteLine("Not bilgisi güncellenmiştir.");
+    goto rtn;
+}
+else if (secim == 7)
+{
     Console.WriteLine("Çıkış Yapıldı");
+}
+else
+{
+    Console.WriteLine("Hatalı seçim yapıldı lütfen tekrar deneyiniz");
+    goto rtn;
 }
 public class Ogrenci
 {
@@ -78,6 +107,5 @@ public class Ogrenci
     public int OgrenciNo { get; set; }
     public int Devamsizlik { get; set; }
     public int SinavNotu { get; set; }
-
 }
 
