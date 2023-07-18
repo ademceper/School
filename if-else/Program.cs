@@ -12,8 +12,8 @@ ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Fatih", SiniftaMi = false, OgrenciN
 ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Ali", SiniftaMi = true, OgrenciNo = 7, Devamsizlik = 15, SinavNotu = 22, });
 ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Samet", SiniftaMi = true, OgrenciNo = 8, Devamsizlik = 3, SinavNotu = 73,  });
 ogrenciler.Add(new Ogrenci() { OgrenciAdi = "Taner", SiniftaMi = false, OgrenciNo = 9, Devamsizlik = 7, SinavNotu = 41, });
-rtn:;
 Console.WriteLine("Merhaba Öğrenci yoklama ve dersi geçip geçemediğini hesaplayan uygulamaya hoş geldiniz");
+rtn:;
 Console.WriteLine("Lütfen yapmak istediğiniz işlemin numarasını yazarak seçiniz");
 Console.WriteLine("1. Öğrenci listesi");
 Console.WriteLine("2. Yoklama al");
